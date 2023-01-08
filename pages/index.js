@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import { Inter } from "@next/font/google";
+import { motion } from "framer-motion";
 import styles from "../styles/Home.module.css";
 import Navbar from "../components/Navbar";
 
@@ -16,7 +17,17 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="min-h-screen w-full flex flex-col md:flex-row">
-        <div className="w-[50%] min-h-full flex flex-col justify-center">
+        <motion.div
+          className="w-[50%] min-h-full flex flex-col justify-center"
+          initial={{ scale: 1, opacity: 0, translateY: "20px" }}
+          animate={{ scale: 1, opacity: 1, translateY: 0 }}
+          transition={{
+            type: "tween",
+            ease: "easeOut",
+            duration: 2,
+            delay: 0.2,
+          }}
+        >
           <h1 className="font-bold text-[5rem]">Alpha Fiendz</h1>
           <p className="w-[80%]">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -39,9 +50,19 @@ export default function Home() {
               Blog
             </button>
           </div>
-        </div>
+        </motion.div>
         <div className="w-[50%]">
-          <div className="min-h-screen flex items-center justify-center px-16">
+          <motion.div
+            className="min-h-screen flex items-center justify-center px-16"
+            initial={{ scale: 1, opacity: 0, translateY: "20px" }}
+            animate={{ scale: 1, opacity: 1, translateY: 0, delay: 0.2 }}
+            transition={{
+              type: "tween",
+              ease: "easeOut",
+              duration: 2,
+              delay: 0.2,
+            }}
+          >
             <div className="relative w-full max-w-lg">
               <div className="absolute top-0 -left-4 w-72 h-72 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
               <div className="absolute top-0 -right-4 w-72 h-72 bg-indigo-600 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
@@ -73,7 +94,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </>
